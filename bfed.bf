@@ -1,7 +1,5 @@
 [bfed.bf -- the source code of bfed, Brainfuck-based ed re-implementation.
 
- []
-
 Code starts here:]
 
 >+ ; line number / exit flag
