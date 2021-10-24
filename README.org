@@ -42,16 +42,16 @@ This layout hints at some more restrictions that bfed has:
 
 You can hack the layout, if you want. It is trivial to rewrite command/line areas by supplying overly long input.
 * To Do
-- [ ] Simple commands ("a", "d", "=" etc.)
-  - [X] "=" -- non-standard: prints the current line number.
-  - [X] "q" -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
-- [ ] Commands with args ("s", "k" etc.)
+- [ ] Simple commands (=a=, =d=, === etc.)
+  - [X] === -- non-standard: prints the current line number.
+  - [X] =q= -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
+- [ ] Commands with args (=s=, =k= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.
-- [ ] Simple addresses ("1", "222").
-- [ ] Ranges ("10-20").
-- [ ] Address aliases (",", ".", "$", ";", "%").
-- [ ] Relative addresses ("-10").
+- [ ] Simple addresses (=1=, =222=).
+- [ ] Ranges (=10-20=).
+- [ ] Address aliases (=,=, =.=, =$=, =;=, =%=).
+- [ ] Relative addresses (=-10=).
 - [ ] Mark addresses.
 - [ ] Forward regexp addresses.
 - [ ] Backward regexp addresses.
