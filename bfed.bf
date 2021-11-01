@@ -10,34 +10,77 @@ Code starts here:]
  <+> ; set the case flag
  ;;; case
  [ ; if exists
-  ;; '='
+  ;; '=' (61)
   ----- -----
   ----- -----
   ----- -----
   ----- -----
   ----- -----
   ----- ----- -
-  [ ; 'q'
+  [ ; 'c' (99)
    ----- -----
    ----- -----
    ----- -----
-   ----- -----
-   ----- ----- --
-   [ ; not 'q'
-    <->[-]
-    ;; error
-    ;; question mark
-    +++++ +++++
-    +++++ +++++
-    +++++ +++++
-    +++++ +++++
-    +++++ +++++
-    +++++ +++++ +++.[-]
-    +++++ +++++.[-]
+   ----- ---
+   [ ; 'q' (113)
+    ----- ----- ----
+    [ ; not 'q'
+     <->[-]
+     ;; error
+     ;; question mark
+     +++++ +++++
+     +++++ +++++
+     +++++ +++++
+     +++++ +++++
+     +++++ +++++
+     +++++ +++++ +++.[-]
+     +++++ +++++.[-]
+    ]
+    <
+    [ ; when 'q'
+     <[-]>[-] ; empty the line number
+    ]
+    >
    ]
    <
-   [ ; when 'q'
-    <[-]>[-] ; empty the line number
+   [ ; when 'c'
+    >[-] ; erase the command
+    << ; back to line number
+    ;; 41 cells to the right is the beginning of the line sector
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    ,----- ----- [>,----- -----] ; read a text until a newline
+    <[+++++ +++++<] ; restore the original text
+    >>[<<<+<+>>>>-]<<<<[>>>>+<<<<-] ; copy second char if present
+    >>+>> ; set the flag for length checking
+    [ ; if length more than 1 (= second char nonzero)
+     <<- ; kill flag
+     >>[-] ; nullify second char (to exit the loop)
+    ]
+    <<<[>>>+<<<-] ; copy second char back
+    >>[<<+<+>>>-]<<<[>>>+<<<-]>> ; duplicate the first char and move to flag
+    [ ; if length is 1
+     >
+     ----- -----
+     ----- -----
+     ----- -----
+     ----- -----
+     ----- -    ; dot
+     [ ; if not dot
+      [-]<-> ; kill flag
+      ;; TODO: set the command to something (1) to continue the insert loop
+     ]
+     <<[>>+<<-] ; restore the first char
+     >
+     [ ; if dot AND nothing else (insert finished)
+      - ; kill flag
+      ;; TODO:
+      ;; * remove the dot line
+      ;; * Move line back
+      ;; * Check whether on a first line
+      ;;   * If on a first line do nothing
+      ;;   * Otherwise go back
+     ]
+    ]
    ]
    >
   ]
