@@ -50,10 +50,6 @@ Code starts here:]
      ;; 40 cells to line start
      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
      [.>] ; print the whole line
-     +++++ +++++
-     +++++ +++++
-     +++++ +++++
-     +++++ +.[-] ; print dollar sign for end of line
      +++++ +++++.[-] ; print newline
      <[<]
      ;; 39 back to empty command flag

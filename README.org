@@ -46,7 +46,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] = -- half-standard: indexes lines from 1.
   - [X] =q= -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
   - [X] =c= -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
-  - [X] =p= -- half-standard: prints the current line with the dollar sign (=$=) as the end of line marker.
+  - [X] =p=.
 - [ ] Commands with args (=s=, =k= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.
