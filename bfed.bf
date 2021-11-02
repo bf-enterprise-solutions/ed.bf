@@ -25,7 +25,7 @@ Code starts here:]
    [ ; 'q' (113)
     ----- ----- ----
     [ ; not 'q'
-     <->[-]
+     <->[-] ; empty the flag
      ;; error
      ;; question mark
      +++++ +++++
@@ -51,10 +51,11 @@ Code starts here:]
     ,----- ----- [>,----- -----] ; read a text until a newline
     <[+++++ +++++<] ; restore the original text
     >>[<<<+<+>>>>-]<<<<[>>>>+<<<<-] ; copy second char if present
-    >>+>> ; set the flag for length checking
+    >>+>> ; set the flag for length checking and move to second char
     [ ; if length more than 1 (= second char nonzero)
      <<- ; kill flag
      >>[-] ; nullify second char (to exit the loop)
+     ;; TODO: line moving (see below)
     ]
     <<<[>>>+<<<-] ; copy second char back
     >>[<<+<+>>>-]<<<[>>>+<<<-]>> ; duplicate the first char and move to flag
@@ -67,7 +68,58 @@ Code starts here:]
      ----- -    ; dot
      [ ; if not dot
       [-]<-> ; kill flag
-      ;; TODO: set the command to something (1) to continue the insert loop
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++
+      +++++ +    ; dot
+      ;; move 40 chars back to the command flag and set it
+      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
+      < ; line number
+      [[ ; copy the command to the next line
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>> >> ; 122 chars forward is next command sector
+        +
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<< << -
+       ]
+       >
+      ]
+      >
+      [[ ; copy the command to the next line (in case there's anything left)
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>> > + ; 121 chars forward to merge it with previous block
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<< < -
+       ]
+       >
+      ]
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>> > ; next sector
+      ; move to the line number and increase it
+      [<]>+
+      ;; 41: back to the first char of a new line
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
      ]
      <<[>>+<<-] ; restore the first char
      >
@@ -81,6 +133,7 @@ Code starts here:]
       ;;   * Otherwise go back
      ]
     ]
+    ;; TODO: restore first char unconditionally
    ]
    >
   ]
