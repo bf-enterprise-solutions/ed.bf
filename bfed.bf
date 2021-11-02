@@ -43,8 +43,12 @@ Code starts here:]
     >
    ]
    <
+   ;; FIXME:
+   ;; * continues input if "dot only"
+   ;; * exits if input is longer than one char
+   ;; * Completes if a single char on a single line
    [ ; when 'c'
-    >[-] ; erase the command
+    ->[-] ; erase the command flag and command
     << ; back to line number
     ;; 41 cells to the right is the beginning of the line sector
     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -54,8 +58,55 @@ Code starts here:]
     >>+>> ; set the flag for length checking and move to second char
     [ ; if length more than 1 (= second char nonzero)
      <<- ; kill flag
-     >>[-] ; nullify second char (to exit the loop)
-     ;; TODO: line moving (see below)
+     ;; move 39 chars back to the command flag and set it
+     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
+     < ; line number
+     [[ ; copy the command to the next line
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>> >> ; 122 chars forward is next command sector
+       +
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<< << -
+      ]
+      >
+     ]
+     >
+     [[ ; copy the command to the next line (in case there's anything left)
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>> > + ; 121 chars forward to merge it with previous block
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<< < -
+      ]
+      >
+     ]
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>> > ; next sector
+     ; move to the line number and increase it
+     [<]>+
+     ;; 42: back to the second char of a new line
+     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     ;; copy second char to the left and leave empty
+     [<<<+>>>-]
     ]
     <<<[>>>+<<<-] ; copy second char back
     >>[<<+<+>>>-]<<<[>>>+<<<-]>> ; duplicate the first char and move to flag
@@ -73,6 +124,7 @@ Code starts here:]
       +++++ +++++
       +++++ +++++
       +++++ +    ; dot
+      <<[-]>> ; destroy the copy of first char now that it's restored
       ;; move 40 chars back to the command flag and set it
       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
       < ; line number
@@ -125,15 +177,83 @@ Code starts here:]
      >
      [ ; if dot AND nothing else (insert finished)
       - ; kill flag
-      ;; TODO:
-      ;; * remove the dot line
-      ;; * Move line back
-      ;; * Check whether on a first line
-      ;;   * If on a first line do nothing
-      ;;   * Otherwise go back
+      >[-] ; destroy the dot line
+      ;; Move to the line number
+      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+      <+> ; set "line number is 1" flag
+      -
+      [ ; if line number not 1
+       <-> ; kill flag
+       [[ ; copy the command to the prev line
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<< << +
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>> >> - ; 122 chars back is prev command sector
+        ]
+        >
+       ]
+       >
+       [[ ; copy the command to the prev line (in case there's anything left)
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<<
+         <<<<< <<<<< <<<<< <<<<< < +
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>>
+         >>>>> >>>>> >>>>> >>>>> > - ; 121 chars forward to merge it with previous block
+        ]
+        >
+       ]
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<<
+       <<<<< <<<<< <<<<< <<<<< < ; prev sector
+       [<]>+ ; move to the line number and increase it
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>> >> ; back to the next sector line number
+      ]
+      <
+      [ ; if line 1
+       -> ; kill flag, move to line number
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>>
+       >>>>> >>>>> >>>>> >>>>> >> ; one sector forward to compensate the move below
+       <[-] ; to flag cell (empty it just in case)
+      ]
+      >
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<< <<+ ; one sector back and increase it
      ]
     ]
-    ;; TODO: restore first char unconditionally
+    <[>>+<<-] ; restore first char unconditionally
+    ;; Move to command flag and loop
+    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
    ]
    >
   ]
