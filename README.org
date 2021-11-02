@@ -48,6 +48,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] =c= -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
   - [X] =p=.
   - [X] newline -- non-standard: moves forward and prints lines until an empty line is encountered. Stays on this empty line.
+  - [X] =d= -- UNTESTED, except for on last line.
 - [ ] Commands with args (=s= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.

@@ -21,38 +21,99 @@ Code starts here:]
    ----- -----
    ----- -----
    ----- ---
-   [ ; 'p' (112)
-    ----- ----- ---
-    [ ; 'q' (113)
-     -
-     [ ; not 'q'
-      <->[-] ; empty the flag
-      ;; error
-      ;; question mark
-      +++++ +++++
-      +++++ +++++
-      +++++ +++++
-      +++++ +++++
-      +++++ +++++
-      +++++ +++++ +++.[-]
-      +++++ +++++.[-]
+   [ ; 'd' (100)
+    -
+    [ ; 'p' (112)
+     ----- ----- --
+     [ ; 'q' (113)
+      -
+      [ ; not 'q'
+       <->[-] ; empty the flag
+       ;; error
+       ;; question mark
+       +++++ +++++
+       +++++ +++++
+       +++++ +++++
+       +++++ +++++
+       +++++ +++++
+       +++++ +++++ +++.[-]
+       +++++ +++++.[-]
+      ]
+      <
+      [ ; when 'q'
+       <[-]>[-] ; empty the line number and command flag
+      ]
+      >
      ]
      <
-     [ ; when 'q'
-      <[-]>[-] ; empty the line number and command flag
+     [ ; when 'p'
+      [-] ; empty command flag
+      ;; 40 cells to line start
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      [.>] ; print the whole line
+      +++++ +++++.[-] ; print newline
+      <[<]
+      ;; 39 back to empty command flag
+      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
      ]
      >
     ]
     <
-    [ ; when 'p'
-     [-] ; empty command flag
-     ;; 40 cells to line start
+    [ ; when 'd'
+     - ; kill command flag
+     ;; 40: move to the start of next line
      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-     [.>] ; print the whole line
-     +++++ +++++.[-] ; print newline
-     <[<]
-     ;; 39 back to empty command flag
-     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     [>]< ; then to the end of it
+     [[-]<]> ; erase everything and stop at the line start
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>>
+     >>>>> >>>>> >>>>> >>>>> >> ;; 122 to next line
+     [
+      [>]<
+      ;; copy the full line
+      [[<<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<<
+        <<<<< <<<<< <<<<< <<<<< << +
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>>
+        >>>>> >>>>> >>>>> >>>>> >> -
+      ]<]
+      ;; 123: compensate for the copy loop and move to next line
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>>
+      >>>>> >>>>> >>>>> >>>>> >>>
+     ]
+     ;; 40: back to the command flag and set it
+     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
+     [
+      -
+      ;; 122: Move to the previous command flag
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<<
+      <<<<< <<<<< <<<<< <<<<< << + ; and set it
+      < ; move to line number
+      [ ; if line number
+       >-< ; kill command flag
+       [<+>-] ; copy line number and exit the loop
+      ]
+      <[>+<-]> ; restore (possibly) destroyed line number
+      > ; back to command flag | exit if line number was there
+     ]
     ]
     >
    ]
