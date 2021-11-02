@@ -6,8 +6,7 @@ Code starts here:]
 [ ; main loop
  >>,----- ----- [>,----- -----] ; read a text until a newline
  <[+++++ +++++<] ; restore the original text
- > ; get back to the command text
- <+> ; set the case flag
+ +> ; set the case flag and get back to the command text
  ;;; case
  [ ; if exists
   ;; '=' (61)
@@ -96,17 +95,54 @@ Code starts here:]
   >
  ]
  <
- [ ; when does not exist
-  ;; question mark
-  +++++ +++++
-  +++++ +++++
-  +++++ +++++
-  +++++ +++++
-  +++++ +++++
-  +++++ +++++
-  +++.[-]
-  +++++ +++++.[-]
-  >[-]<
+ [ ; when a single newline
+  ;; move to the beginning of line and set presence flag
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>+>
+  [ ; if something on the line
+   <-> ; kill presence flag
+   [.>]+++++ +++++.[-] ; print the line
+   ;; loop and 40: move back to line number
+   <[<]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+   ;; 122: copy line number one sector forward
+   [>>>>> >>>>> >>>>> >>>>>
+    >>>>> >>>>> >>>>> >>>>>
+    >>>>> >>>>> >>>>> >>>>>
+    >>>>> >>>>> >>>>> >>>>>
+    >>>>> >>>>> >>>>> >>>>>
+    >>>>> >>>>> >>>>> >>>>> >> +
+    <<<<< <<<<< <<<<< <<<<<
+    <<<<< <<<<< <<<<< <<<<<
+    <<<<< <<<<< <<<<< <<<<<
+    <<<<< <<<<< <<<<< <<<<<
+    <<<<< <<<<< <<<<< <<<<<
+    <<<<< <<<<< <<<<< <<<<< << -]
+   ; 122: move to next line (increase line number)
+   >>>>> >>>>> >>>>> >>>>>
+   >>>>> >>>>> >>>>> >>>>>
+   >>>>> >>>>> >>>>> >>>>>
+   >>>>> >>>>> >>>>> >>>>>
+   >>>>> >>>>> >>>>> >>>>>
+   >>>>> >>>>> >>>>> >>>>> >> +
+   ;; 41: move to line start
+   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+   [<<+>>-] ; copy the first char if something on the line
+  ]
+  <<[>>+<<-] ; copy (possibly) saved first char
+  > ; back to the presence flag
+  [
+   [-]
+   ;; question mark
+   +++++ +++++
+   +++++ +++++
+   +++++ +++++
+   +++++ +++++
+   +++++ +++++
+   +++++ +++++
+   +++.[-]
+   +++++ +++++.[-]
+  ]
+  ;; 39: back to the command flag and kill it
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]
  ]
  <
 ] ; main loop

@@ -47,6 +47,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] =q= -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
   - [X] =c= -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
   - [X] =p=.
+  - [X] newline -- non-standard: moves forward and prints lines until an empty line is encountered. Stays on this empty line.
 - [ ] Commands with args (=s=, =k= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.
