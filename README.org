@@ -48,14 +48,14 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] =c= -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
   - [X] =p=.
   - [X] newline -- non-standard: moves forward and prints lines until an empty line is encountered. Stays on this empty line.
-- [ ] Commands with args (=s=, =k= etc.)
+- [ ] Commands with args (=s= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.
 - [ ] Simple addresses (=1=, =222=).
 - [ ] Ranges (=10-20=).
 - [ ] Address aliases (, and =.=, =$=, =;=, =%=).
 - [ ] Relative addresses (=-10=).
-- [ ] Mark addresses.
+- [ ] Mark addresses (=k=, =`=).
 - [ ] Forward regexp addresses.
 - [ ] Backward regexp addresses.
 - [ ] Use GNU m4 macros to reduce code repetition.
