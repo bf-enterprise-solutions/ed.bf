@@ -58,9 +58,9 @@ Code starts here:]
    ]
    <
    [ ; when 'c'
-    ->[-] ; erase the command flag and command
-    ;; 39 cells to the right is the beginning of the line sector
-    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    - ; erase the command flag
+    ;; 40 cells to the right is the beginning of the line sector
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     ,----- ----- [>,----- -----] ; read a text until a newline
     <[+++++ +++++<] ; restore the original text
     ;; 39 Move to command flag and exit
