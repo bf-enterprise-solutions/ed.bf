@@ -22,23 +22,42 @@ Code starts here:]
    ----- -----
    ----- -----
    ----- ---
-   [ ; 'q' (113)
-    ----- ----- ----
-    [ ; not 'q'
-     <->[-] ; empty the flag
-     ;; error
-     ;; question mark
-     +++++ +++++
-     +++++ +++++
-     +++++ +++++
-     +++++ +++++
-     +++++ +++++
-     +++++ +++++ +++.[-]
-     +++++ +++++.[-]
+   [ ; 'p' (112)
+    ----- ----- ---
+    [ ; 'q' (113)
+     -
+     [ ; not 'q'
+      <->[-] ; empty the flag
+      ;; error
+      ;; question mark
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++
+      +++++ +++++ +++.[-]
+      +++++ +++++.[-]
+     ]
+     <
+     [ ; when 'q'
+      <[-]>[-] ; empty the line number and command flag
+     ]
+     >
     ]
     <
-    [ ; when 'q'
-     <[-]>[-] ; empty the line number
+    [ ; when 'p'
+     [-] ; empty command flag
+     ;; 40 cells to line start
+     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     [.>] ; print the whole line
+     +++++ +++++
+     +++++ +++++
+     +++++ +++++
+     +++++ +.[-] ; print dollar sign for end of line
+     +++++ +++++.[-] ; print newline
+     <[<]
+     ;; 39 back to empty command flag
+     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     ]
     >
    ]
