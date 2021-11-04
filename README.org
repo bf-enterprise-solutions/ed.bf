@@ -48,7 +48,8 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] =c= -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
   - [X] =p=.
   - [X] newline -- non-standard: moves forward and prints lines until an empty line is encountered. Stays on this empty line.
-  - [X] =d= -- UNTESTED, except for on last line.
+  - [X] =d=.
+  - [X] =-=.
 - [ ] Commands with args (=s= etc.)
 - [ ] Commands with optional args.
 - [ ] Address without a command.
@@ -78,6 +79,10 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
     standing on a separate line.
   - One semicolon is a line comment just after the code.
   - Comments always end with a newline. No comment-code mixing.
+
+* Change Log
+** Version 1.0
+Finally, a full range of editing primitives: =, -, newline, c, d, p.
 
 * License
 BSD 2-Clause
