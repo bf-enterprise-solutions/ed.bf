@@ -87,9 +87,5 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
 ### Version 1.0
 Finally, a full range of editing primitives: =, -, newline, c, d, p.
 
-## Acknowledgements
-
-The cell printing snippet is taken from [Brainfuck wiki](https://esolangs.org/wiki/Brainfuck_algorithms#Print_value_of_cell_x_as_number_for_ANY_sized_cell_.28eg_8bit.2C_100000bit_etc.29).
-
 ##  License
 BSD 2-Clause
