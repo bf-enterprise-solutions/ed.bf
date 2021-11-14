@@ -43,7 +43,7 @@ Code starts here:]
        ]
        <
        [ ; when 'q'
-        <[-]>[-] ; empty the line number and command flag
+        [-]<[-]> ; empty the line number and command flag
        ]
        >
       ]
@@ -163,7 +163,7 @@ Code starts here:]
   [ ; when minus
    <- ; move to line number and decrease it
    [
-    >-< ; kill command flag
+    >[-]< ; kill command flag
     ;; copy line number one line back
     [<<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<<
@@ -193,7 +193,7 @@ Code starts here:]
    <[>+<-]> ; possibly restore line number
    >
    [ ; if command flag is there (no movement happened)
-    <+>
+    <+> ; restore line number
     [-]
     ;; question mark
     +++++ +++++
@@ -258,7 +258,7 @@ Code starts here:]
   ;; 39: back to the command flag and kill it
   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]
  ]
- <
+ < ; back to line number
 ] ; main loop
 
 
