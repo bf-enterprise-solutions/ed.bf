@@ -4,7 +4,7 @@ Code starts here:]
 
 >+ ; line number / exit flag
 [ ; main loop
- >>,----- ----- [>,----- -----] ; read a text until a newline
+ >>>>,----- ----- [>,----- -----] ; read a text until a newline
  <[+++++ +++++<] ; restore the original text
  +> ; set the case flag and get back to the command text
  ;;; case
@@ -43,28 +43,28 @@ Code starts here:]
        ]
        <
        [ ; when 'q'
-        [-]<[-]> ; empty the line number and command flag
+        [-]<<<[-]>>> ; empty the line number and command flag
        ]
        >
       ]
       <
       [ ; when 'p'
        [-] ; empty command flag
-       ;; 40 cells to line start
-       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+       ;; 38: to line start
+       >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
        [.>] ; print the whole line
        +++++ +++++.[-] ; print newline
        <[<]
-       ;; 39 back to empty command flag
-       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+       ;; 37: back to empty command flag
+       <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
       ]
       >
      ]
      <
      [ ; when 'd'
       - ; kill command flag
-      ;; 40: move to the start of next line
-      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+      ;; 38: move to the start of next line
+      >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
       [>]< ; then to the end of it
       [[-]<]> ; erase everything and stop at the line start
       >>>>> >>>>> >>>>> >>>>>
@@ -97,8 +97,8 @@ Code starts here:]
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>> >>>
       ]
-      ;; 40: back to the command flag and set it
-      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
+      ;; 38: back to the command flag and set it
+      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<+
       [
        -
        ;; 122: Move to the previous command flag
@@ -108,13 +108,13 @@ Code starts here:]
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<< << + ; and set it
-       < ; move to line number
+       <<< ; move to line number
        [ ; if line number
-        >-< ; kill command flag
+        >>>-<<< ; kill command flag
         [<+>-] ; copy line number and exit the loop
        ]
        <[>+<-]> ; restore (possibly) destroyed line number
-       > ; back to command flag | exit if line number was there
+       >>> ; back to command flag | exit if line number was there
       ]
      ]
      >
@@ -122,18 +122,18 @@ Code starts here:]
     <
     [ ; when 'c'
      - ; erase the command flag
-     ;; 40 cells to the right is the beginning of the line sector
-     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+     ;; 38: beginning of the line sector
+     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
      ,----- ----- [>,----- -----] ; read a text until a newline
      <[+++++ +++++<] ; restore the original text
-     ;; 39 Move to command flag and exit
-     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+     ;; 37: to command flag and exit
+     <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     ]
     >
    ]
    <
    [ ; when '='
-    < ; move to line number
+    <<< ; move to line number
     ;; https://esolangs dot org/wiki/Brainfuck_algorithms hash
     ;; Print_value_of_cell_x_as_number_for_ANY_sized_cell_ dot
     ;; 28eg_8bit dot 2C_100000bit_etc dot 29
@@ -154,16 +154,16 @@ Code starts here:]
     ]                                   // end loop when n is zero
     <[.[-]<]                                // Move to were Z should be and
                                          // output the digits till we find Z
-    ;; We are at the command flag now
+    >> ; we are at the command flag now
     +++++ +++++.[-]
    ]
    >
   ]
   <
   [ ; when minus
-   <- ; move to line number and decrease it
+   <<<- ; move to line number and decrease it
    [
-    >[-]< ; kill command flag
+    >>>[-]<<< ; kill command flag
     ;; copy line number one line back
     [<<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<<
@@ -188,12 +188,12 @@ Code starts here:]
     ;; move to the line and print it
     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>[.>]+++++ +++++.[-]
     ;; back to empty line number and empty command flag
-    <[<]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]<
+    <[<]<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]<<<
    ]
    <[>+<-]> ; possibly restore line number
-   >
+   >>>
    [ ; if command flag is there (no movement happened)
-    <+> ; restore line number
+    <<<+>>> ; restore line number
     [-]
     ;; question mark
     +++++ +++++
@@ -210,8 +210,8 @@ Code starts here:]
  ]
  <
  [ ; when a single newline
-  ;; move to the beginning of line and set presence flag
-  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>+>
+  ;; 37: move to the beginning of line and set presence flag
+  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>+>
   [ ; if something on the line
    <-> ; kill presence flag
    [.>]+++++ +++++.[-] ; print the line
@@ -255,10 +255,10 @@ Code starts here:]
    +++.[-]
    +++++ +++++.[-]
   ]
-  ;; 39: back to the command flag and kill it
-  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]
+  ;; 37: back to the command flag and kill it
+  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<[-]
  ]
- < ; back to line number
+ <<< ; back to line number
 ] ; main loop
 
 

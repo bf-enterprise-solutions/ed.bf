@@ -32,15 +32,18 @@ Layout is approximately this:
 40 command cells need a further explanation. After the command parsing, their layout is
 
 ```
-[line number/exit flag][0][command][37 argument cells]
+[line number/exit flag][start line number][end line number][command flag][command][35 argument cells]
 ```
 
 This layout hints at some more restrictions that bfed has:
 
 - Line number is one cell, and thus there can only be as many lines, as cell capacity allows. For 8 bit implementations, 255 is the maximum line number. Pick a 16/32/64 bit implementation if you want more lines.
+  - Same restriction holds for start and end line numbers.
 - Line number serves as the exit flag. If it's zero, bfed exits. Thus, the range of values for line numbers is 1 to 255.
 - Commands can only be one char wide, as in classic ed.
-- There are only 37 cells for arguments. Anything wider will break bfed in horrible ways. Unless you know what you're doing, restrict your command arguments to 37 characters.
+- There are only 35 cells for arguments. Anything wider will break bfed in horrible ways. Unless you know what you're doing, restrict your command arguments to 35 characters.
+- Command flag is the flag used for the command switch. It should be zero unless the current command is not yet processed.
+- Start and end line numbers are not yet used, but will be... one day.
 
 You can hack the layout, if you want. It is trivial to rewrite command/line areas by supplying overly long input.
 
