@@ -58,16 +58,15 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] `-`.
 - [ ] Commands with args (`s` etc.)
 - [ ] Commands with optional args.
-- [ ] Address without a command.
-  - [X] 0-starting addresses (e.g., `0222` = `222`) -- half-standard: moves to lines that don't even exist yet
-    - Yes, you can move to line 255 even in an empty file. Do I want to fix it? No, it's too fun!
-- [ ] Simple addresses (`1`, `222`) with commands.
-- [ ] Ranges (`10-20`) with commands.
-- [ ] Address aliases (`,` and `.`, `$`, `;`, `%`) with commands.
-- [ ] Relative addresses (`-10`) with commands.
-- [ ] Mark addresses (`k`, `\``) with commands.
-- [ ] Forward regexp addresses with commands.
-- [ ] Backward regexp addresses with commands.
+- [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
+- [ ] Simple addresses (`1`, `222`).
+- [ ] Ranges (`10-20`).
+- [ ] Address aliases (`,` and `.`, `$`, `;`, `%`).
+- [ ] Relative addresses (`-10`).
+- [ ] Mark addresses (`k`, `\``).
+- [ ] Forward regexp addresses.
+- [ ] Backward regexp addresses.
+- [ ] Addresses with commands.
 - [ ] Use GNU m4 macros to reduce code repetition.
   - Is that worthy of Brainfuck programmer? No, it's not.
     - Do I care? Depends on how much bloat I'll end up with.
