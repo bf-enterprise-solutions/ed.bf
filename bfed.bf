@@ -7,7 +7,7 @@ Code starts here:]
  >>>>,----- ----- [>,----- -----] ; read a text until a newline
  <[+++++ +++++<] ; restore the original text
  +> ; set the case flag and get back to the command text
- ;;; case
+ ;;; switch
  [ ; if exists
   ;; minus (45)
   ----- -----
