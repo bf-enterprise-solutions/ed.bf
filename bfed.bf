@@ -45,13 +45,13 @@ Code starts here:]
           +++++ +++++.[-]
          ]
          <
-         [ ; when 'q'
+         [ ; case 'q':
           [-]<<<[-]>>> ; empty the line number and command flag
          ]
          >
         ]
         <
-        [ ; when 'p'
+        [ ; case 'p':
          [-] ; empty command flag
          ;; 38: to line start
          >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -64,7 +64,7 @@ Code starts here:]
         >
        ]
        <
-       [ ; when 'd'
+       [ ; case 'd':
         - ; kill command flag
         ;; 38: move to the start of next line
         >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -123,7 +123,7 @@ Code starts here:]
        >
       ]
       <
-      [ ; when 'c'
+      [ ; case 'c':
        - ; erase the command flag
        ;; 38: beginning of the line sector
        >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -135,7 +135,7 @@ Code starts here:]
       >
      ]
      <
-     [ ; when '='
+     [ ; case '=':
       <<< ; move to line number
       ;; https://esolangs dot org/wiki/Brainfuck_algorithms hash
       ;; Print_value_of_cell_x_as_number_for_ANY_sized_cell_ dot
@@ -162,17 +162,17 @@ Code starts here:]
      ]
      >
     ]
-    <[[->+<]>+<]>[<+>-]] ; case 9: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 8: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 7: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 6: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 5: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 4: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 3: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 2: increase command flag
-    <[[->+<]>+<]>[<+>-]] ; case 1: increase command flag
+    <[[->+<]>+<]>[<+>-]] ; case '9': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '8': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '7': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '6': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '5': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '4': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '3': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '2': increase command flag FALLTHROUGH
+    <[[->+<]>+<]>[<+>-]] ; case '1': increase command flag FALLTHROUGH
    <
-   [ ; when zero
+   [ ; case '0':
     [>+<-]>-> ; get to the first unprocessed digit
     [ ; get it to be 1 to 10 for 0 to 9
     ----- -----
@@ -273,7 +273,7 @@ Code starts here:]
    >
   ]
   <
-  [ ; when minus
+  [ ; case minus:
    <<<- ; move to line number and decrease it
    [
     >>>[-]<<< ; kill command flag
@@ -322,7 +322,7 @@ Code starts here:]
   >
  ]
  <
- [ ; when a single newline
+ [ ; case '\n':
   ;; 37: move to the beginning of line and set presence flag
   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>+>
   [ ; if something on the line
