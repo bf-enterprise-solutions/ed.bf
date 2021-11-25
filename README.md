@@ -1,8 +1,16 @@
 # bfed -- an opinionated ed re-implementation in Brainfuck
 
-`ed` is notorious for being the most user-hostile text editor. Brainfuck is notorious for being one of the most programmer-hostile programming languages. Feels like a perfect match, doesn't it?
+> The original grep [as part of ed text editor] was written [overnight] in PDP-11 assembly language [by Ken Thompson].
 
-This is an incomplete, buggy and (potentially) Turing-complete re-implementation of UNIX ed in Brainfuck. It is *already* non-standard in where I feel it necessary.
+-- Brian Kernigan, in the [YouTube Computerphile video about grep](https://www.youtube.com/watch?v=NTfOnGZUZDk).
+
+> Not being Ken Thompson is a struggle every working software engineer has to contend with.
+
+-- David Gillies, a YouTube comment under the same video.
+
+`ed` is notorious for being the most user-hostile text editor. It was initially implemented in assembly. Brainfuck is notorious for being one of the most programmer-hostile programming languages. It is extremely close to assembly. Feels like a perfect match for one get the feel of the legendary programmer existence, doesn't it?
+
+`bfed` is an incomplete, buggy and (potentially) Turing-complete re-implementation of UNIX ed in Brainfuck. It is *already* non-standard in where I feel it necessary.
 
 The Memory layout (see below) it has allows for terrible hacks and more efficient text editing if you understand it. I will *never* fix the memory layout being overrestrictive/hackable. Enjoy.
 
