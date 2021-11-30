@@ -28,6 +28,39 @@ Find the proper implementation. bfed work only on implementations where:
 
 Run bfed.bf and enjoy the most user-and-programmer-hostile text editor!
 
+### Example session
+
+This is simply a free-style copy of [the example ed session from Wikipedia](https://en.wikipedia.org/wiki/Ed_(text_editor)#Example).
+
+Lines starting with `>` are user input. Note that bfed doen't do any indication of when to input commands, much like original ed. Thus, these `>` were added for clarity and shouldn't be there in the actual session.
+
+Also note that bfed doesn't yet support comments, neither on the line by themselves nor inline. Those were added for clarity too. Using those can break bfed. Or it won't do anything, who knows :)
+```
+# bff is used as bf interpreter there, but any other interpreter/compiler should be fine too
+$ bff bfed.bf # run bfed
+> c # input one line
+> bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+>
+bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+> c # input another line
+> This is line number two.
+>
+This is line number two.
+> c # input empty line
+>
+> = # print a line number
+3
+> - # line back
+This is line number two.
+> - # line back
+bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+> - # line back, but there's nowhere to go
+?
+> p # print current line
+bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+> q # quit
+```
+
 ## Memory layout
 Layout is approximately this:
 
