@@ -65,15 +65,15 @@ bfed is an opinionated UNIX ed re-implementation in Brainfuck.
 Layout is approximately this:
 
 ```
-[0][40 command cells][0][80 text cells (a line)][0][40 command cells][0] et cetera  
+[0][80 command cells][0][80 text cells (a line)][0][80 command cells][0] et cetera
 ```
 
 80 text cells mean a restriction of 80 characters per line. Enforcing this otherwise optional thing helps to ensure the layout stability.
 
-40 command cells need a further explanation. After the command parsing, their layout is
+80 command cells need a further explanation. After the command parsing, their layout is
 
 ```
-[line number/exit flag][start line number][end line number][command flag][command][35 argument cells]
+[line number/exit flag][start line number][end line number][command flag][command][75 argument cells]
 ```
 
 This layout hints at some more restrictions that bfed has:
@@ -82,7 +82,7 @@ This layout hints at some more restrictions that bfed has:
   - Same restriction holds for start and end line numbers.
 - Line number serves as the exit flag. If it's zero, bfed exits. Thus, the range of values for line numbers is 1 to 255.
 - Commands can only be one char wide, as in classic ed.
-- There are only 35 cells for arguments. Anything wider will break bfed in horrible ways. Unless you know what you're doing, restrict your command arguments to 35 characters.
+- There are only 75 cells for arguments. Anything wider will break bfed in horrible ways. Unless you know what you're doing, restrict your command arguments to 75 characters.
 - Command flag is the flag used for the command switch. It should be zero unless the current command is not yet processed.
 - Start and end line numbers are not yet used, but will be... one day.
 
@@ -101,7 +101,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
 - [ ] Commands with optional args.
 - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
 - [ ] Simple addresses (`1`, `222`).
-- [ ] Ranges (`10-20`).
+- [ ] Ranges (`10,20`).
 - [ ] Address aliases (`,` and `.`, `$`, `;`, `%`).
 - [ ] Relative addresses (`-10`).
 - [ ] Mark addresses (`k`, `\``).
@@ -129,6 +129,9 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - Comments always end with a newline. No comment-code mixing.
 
 ## Change Log
+### Version 1.1
+Command sectors are 80 cells long now.
+
 ### Version 1.0
 Finally, a full range of editing primitives: =, -, newline, c, d, p.
 
