@@ -94,9 +94,9 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] `q` -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
   - [X] `c` -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
   - [X] `p`.
-  - [X] newline -- non-standard: moves forward and prints lines until an empty line is encountered. Stays on this empty line.
+  - [X] newline -- non-standard: moves forward and prints next line unless it's an empty line. Stays on this empty line.
   - [X] `d`.
-  - [X] `-`.
+  - [X] Standalone `-`.
 - [ ] Commands with args (`s` etc.)
 - [ ] Commands with optional args.
 - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
