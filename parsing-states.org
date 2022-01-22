@@ -1,0 +1,32 @@
+* Initial
+- , or ; :: [[2nd address]] and put current address into accumulator.
+- . :: [[2nd address]] and put current address into accumulator.
+- - or + or space :: [[1st address]] and subtract/add it somehow.
+- ' :: read one char and put in into first address, then [[command]].
+- 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 :: [[1st address]] and put the digit into the first address accumulator.
+- # :: [[comment]]
+- newline :: [[fin]]
+- anything else :: [[command]]
+* 1st address
+- , or ; :: [[2nd address]]
+- 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 :: [[1st address]] and put the digit into the first address accumulator.
+- # :: [[comment]]
+- newline :: [[fin]]
+- anything else :: [[command]]
+* 2nd address
+- . :: [[1st address]] and put current address into the second address.
+- + :: [[2nd address]] and add the subsequent address to the current one.
+- $ :: [[command]] and put the last line address into the second address.
+- 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 :: [[2nd address]] and put the digit into the second address accumulator.
+- # :: [[comment]]
+- newline :: [[fin]]
+- anything else :: [[command]]
+* command
+- # :: [[comment]]
+- newline :: [[fin]]
+- anything else :: [[command]]
+* comment
+- newline :: [[fin]]
+- anything else :: consume it.
+* fin
+Stop parsing and run the command.
