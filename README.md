@@ -27,6 +27,22 @@ Find the proper implementation. bfed work only on implementations where:
 - Cell wraparound works in both directions.
 
 Run bfed.bf and enjoy the most user-and-programmer-hostile text editor!
+```
+# bff as a brainfuck implementation.
+bff /path/to/bfed.bf
+# or, if you prefer bfed-min
+bff /path/to/bfed-min.bf
+```
+
+### Bfed-min
+
+bfed-min.bf is even more of a laconic bfed version, where all the commands are Brainfuck command characters:
+- `+` and `,` are changing the line
+  - Should `+` be append instead?
+- `-` is deleting the line.
+- `.` is printing the line.
+- `<` is line back.
+- `>` is line forward.
 
 ### Example session
 
