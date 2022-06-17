@@ -116,7 +116,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
 - [ ] Commands with args (`s` etc.)
 - [ ] Commands with optional args.
 - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
-- [ ] Simple addresses (`1`, `222`).
+- [X] Simple addresses (`1`, `222`).
 - [ ] Ranges (`10,20`).
 - [ ] Address aliases (`,` and `.`, `$`, `;`, `%`).
 - [ ] Relative addresses (`-10`).
