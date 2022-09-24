@@ -129,6 +129,9 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
     - Do I care? Depends on how much bloat I'll end up with.
 
 ## Change Log
+### Version 1.2
+A new and minimal bfed-min.bf
+
 ### Version 1.1
 Command sectors are 80 cells long now.
 
