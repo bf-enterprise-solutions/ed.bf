@@ -34,6 +34,17 @@ bff /path/to/bfed.bf
 bff /path/to/bfed-min.bf
 ```
 
+### Bfed commands
+
+- `a` to change the current line. Does not do any checks for content or position. Inserts only one line, then gets back into the command mode. Enjoy.
+- `c` to change the current line. Same as `a`.
+- `d` to remove the current line (flush it clean, basically). Moves all the filled lines after the deleted ones to cover the deleted one. Should it, actually?
+- `p` to print the current line.
+- `=` to print the current line number. Even if the line is empty.
+- newline to go to next line.
+- `-` to go to previous line.
+- `q` to exit bfed.
+
 ### Bfed-min
 
 bfed-min.bf is even more of a laconic bfed version, where all the commands are Brainfuck command characters:
