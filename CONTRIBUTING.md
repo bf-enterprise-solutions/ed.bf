@@ -13,3 +13,4 @@
     standing on a separate line.
   - One semicolon is a line comment just after the code.
   - Comments always end with a newline. No comment-code mixing.
+  - As the only exception, put the file-level comment into a comment loop, conventional for other BF codebases.
