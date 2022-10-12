@@ -43,6 +43,7 @@ bff /path/to/bfed-min.bf
 - `=` to print the current line number. Even if the line is empty.
 - newline to go to next line.
 - `-` to go to previous line.
+- `!` to evaluate Brainfuck code on the current line contents. Given that Brainfuck implies no underlying OS, there's no shell. Thus, the meta-evaluation of Brainfuck code is as close to ed's `!` meaning as we can get :)
 - `q` to exit bfed.
 
 ### Bfed-min
@@ -126,6 +127,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] Standalone `-`.
 - [ ] Commands with args (`s` etc.)
 - [ ] Commands with optional args.
+- [X] Meta-evaluation with `!`.
 - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
 - [X] Simple addresses (`1`, `222`).
 - [ ] Ranges (`10,20`).
@@ -140,6 +142,9 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
     - Do I care? Depends on how much bloat I'll end up with.
 
 ## Change Log
+### Version 1.3
+Add meta-evaluation in with the help of [MBF](https://github.com/aartaka/mbf).
+
 ### Version 1.2
 A new and minimal bfed-min.bf
 
