@@ -117,27 +117,29 @@ This layout hints at some more restrictions that bfed has:
 You can hack the layout, if you want. It is trivial to rewrite command/line areas by supplying overly long input.
 
 ## To Do
-- [ ] Simple commands (`a`, `d`, `=` etc.)
-  - [X] `=` -- half-standard: indexes lines from 1. Prints current line, instead of the last line.
-  - [X] `q` -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
-  - [X] `c` -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
-  - [X] `p`.
-  - [X] newline -- non-standard: moves forward and prints next line unless it's an empty line. Stays on this empty line.
-  - [X] `d`.
-  - [X] Standalone `-`.
-- [ ] Commands with args (`s` etc.)
-- [ ] OS-specific placeholders (`w`, `r`).
-- [ ] Commands with optional args.
-- [X] Meta-evaluation with `!`.
-- [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
-- [X] Simple addresses (`1`, `222`).
-- [ ] Ranges (`10,20`).
-- [ ] Address aliases (`,` and `.`, `$`, `;`, `%`).
-- [ ] Relative addresses (`-10`).
-- [ ] Mark addresses (`k`, `\``).
-- [ ] Forward regexp addresses.
-- [ ] Backward regexp addresses.
-- [ ] Addresses with commands.
+- [ ] More commands
+  - [ ] Simple commands (`a`, `d`, `=` etc.)
+    - [X] `=` -- half-standard: indexes lines from 1. Prints current line, instead of the last line.
+    - [X] `q` -- non-standard: does not prompt for confirmation. Brainfuck has no file handling anyway.
+    - [X] `c` -- non-standard: inserts exactly one line terminated by newline. Creates the line if necessary.
+    - [X] `p`.
+    - [X] newline -- non-standard: moves forward and prints next line unless it's an empty line. Stays on this empty line.
+    - [X] `d`.
+    - [X] Standalone `-`.
+  - [ ] Commands with args (`s` etc.)
+  - [ ] OS-specific placeholders (`w`, `r`).
+  - [ ] Commands with optional args.
+  - [X] Meta-evaluation with `!`.
+- [ ] Addresses.
+  - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
+  - [X] Simple addresses (`1`, `222`).
+  - [ ] Ranges (`10,20`).
+  - [ ] Address aliases (`,` and `.`, `$`, `;`, `%`).
+  - [ ] Relative addresses (`-10`).
+  - [ ] Mark addresses (`k`, `\``).
+  - [ ] Forward regexp addresses.
+  - [ ] Backward regexp addresses.
+  - [ ] Addresses with commands.
 - [ ] Make bfed embeddable.
   - [ ] Terminate on the same memory cell that bfed started on.
   - [ ] Clean up the memory before terminating.
