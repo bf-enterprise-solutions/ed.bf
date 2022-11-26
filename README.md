@@ -126,6 +126,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [X] `d`.
   - [X] Standalone `-`.
 - [ ] Commands with args (`s` etc.)
+- [ ] OS-specific placeholders (`w`, `r`).
 - [ ] Commands with optional args.
 - [X] Meta-evaluation with `!`.
 - [X] Address without a command  -- half-standard: moves to lines that don't even exist yet. Enjoy.
@@ -137,6 +138,9 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
 - [ ] Forward regexp addresses.
 - [ ] Backward regexp addresses.
 - [ ] Addresses with commands.
+- [ ] Make bfed embeddable.
+  - [ ] Terminate on the same memory cell that bfed started on.
+  - [ ] Clean up the memory before terminating.
 - [ ] Use GNU m4 macros to reduce code repetition.
   - Is that worthy of Brainfuck programmer? No, it's not.
     - Do I care? Depends on how much bloat I'll end up with.
