@@ -4,8 +4,8 @@
 
 >+ ; line number / exit flag
 [ ; main loop
- >>>>,----- ----- [>,----- -----] ; read a text until a newline
- <[+++++ +++++<] ; restore the original text
+ >>>>,----- ----- [+++++ +++++>,----- -----] ; read a text until a newline
+ <[<] ; to the command text start
  +> ; set the case flag and get back to the command text
  ;;; switch
  [ ; if exists
@@ -143,8 +143,8 @@
                 ;; 78: beginning of the line sector
                 >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
                 >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>
-                ,----- ----- [>,----- -----] ; read a text until a newline
-                <[+++++ +++++<] ; restore the original text
+                ,----- ----- [+++++ +++++>,----- -----] ; read a text until a newline
+                <[<] ; to the cell before start of line
                 ;; 77: to command flag and exit
                 <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
                 <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<
