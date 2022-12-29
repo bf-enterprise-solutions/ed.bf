@@ -1,4 +1,4 @@
-# bfed -- an opinionated ed re-implementation in Brainfuck
+# ed.bf -- an opinionated ed re-implementation in Brainfuck
 
 > The original grep [as part of ed text editor] was written [overnight] in PDP-11 assembly language [by Ken Thompson].
 
@@ -10,7 +10,7 @@
 
 `ed` is notorious for being the most user-hostile text editor. It was initially implemented in assembly. Brainfuck is notorious for being one of the most programmer-hostile programming languages. It is extremely close to assembly. Feels like a perfect match for one get the feel of the legendary programmer existence, doesn't it?
 
-`bfed` is an incomplete, buggy and (potentially) Turing-complete re-implementation of UNIX ed in Brainfuck. It is *already* non-standard in where I feel it necessary.
+`ed.bf` is an incomplete, buggy and (potentially) Turing-complete re-implementation of UNIX ed in Brainfuck. It is *already* non-standard in where I feel it necessary.
 
 The Memory layout (see below) it has allows for terrible hacks and more efficient text editing if you understand it. I will *never* fix the memory layout being overrestrictive/hackable. Enjoy.
 
@@ -18,23 +18,23 @@ The Memory layout (see below) it has allows for terrible hacks and more efficien
 
 Clone the code
 ```
-  git clone https://github.com/aartaka/bfed.git
+  git clone https://github.com/aartaka/ed.bf.git
 ```
 
-Find the proper implementation. bfed work only on implementations where:
+Find the proper implementation. ed.bf work only on implementations where:
 - All cells are initially zeroed.
 - Tape size is at least 122 * cell size (see layout for why).
 - Cell wraparound works in both directions.
 
-Run bfed.bf and enjoy the most user-and-programmer-hostile text editor!
+Run ed.bf and enjoy the most user-and-programmer-hostile text editor!
 ```
 # bff as a brainfuck implementation.
-bff /path/to/bfed.bf
-# or, if you prefer bfed-min
-bff /path/to/bfed-min.bf
+bff /path/to/ed.bf
+# or, if you prefer ed-min
+bff /path/to/ed-min.bf
 ```
 
-### Bfed commands
+### ed.bf commands
 
 - `a` to change the current line. Does not do any checks for content or position. Inserts only one line, then gets back into the command mode. Enjoy.
 - `c` to change the current line. Same as `a`.
@@ -44,11 +44,11 @@ bff /path/to/bfed-min.bf
 - newline to go to next line.
 - `-` to go to previous line.
 - `!` to evaluate Brainfuck code on the current line contents. Given that Brainfuck implies no underlying OS, there's no shell. Thus, the meta-evaluation of Brainfuck code is as close to ed's `!` meaning as we can get :)
-- `q` to exit bfed.
+- `q` to exit ed.bf.
 
-### Bfed-min
+### ed-min.bf
 
-bfed-min.bf is even more of a laconic bfed version, where all the commands are Brainfuck command characters:
+ed-min.bf is even more of a laconic ed.bf version, where all the commands are Brainfuck command characters:
 - `+` and `,` are changing the line
   - Should `+` be append instead?
 - `-` is deleting the line.
@@ -60,16 +60,16 @@ bfed-min.bf is even more of a laconic bfed version, where all the commands are B
 
 This is simply a free-style copy of [the example ed session from Wikipedia](https://en.wikipedia.org/wiki/Ed_(text_editor)#Example).
 
-Lines starting with `>` are user input. Note that bfed doen't do any indication of when to input commands, much like original ed. Thus, these `>` were added for clarity and shouldn't be there in the actual session.
+Lines starting with `>` are user input. Note that ed.bf doen't do any indication of when to input commands, much like original ed. Thus, these `>` were added for clarity and shouldn't be there in the actual session.
 
-Also note that bfed doesn't yet support comments, neither on the line by themselves nor inline. Those were added for clarity too. Using those can break bfed. Or it won't do anything, who knows :)
+Also note that ed.bf doesn't yet support comments, neither on the line by themselves nor inline. Those were added for clarity too. Using those can break ed.bf. Or it won't do anything, who knows :)
 ```
 # bff is used as bf interpreter there, but any other interpreter/compiler should be fine too
-$ bff bfed.bf # run bfed
+$ bff ed.bf # run ed.bf
 > c # input one line
-> bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+> ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
 >
-bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
 > c # input another line
 > This is line number two.
 >
@@ -81,11 +81,11 @@ This is line number two.
 > - # line back
 This is line number two.
 > - # line back
-bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
 > - # line back, but there's nowhere to go
 ?
 > p # print current line
-bfed is an opinionated UNIX ed re-implementation in Brainfuck.
+ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
 > q # quit
 ```
 
@@ -104,13 +104,13 @@ Layout is approximately this:
 [line number/exit flag][start line number][end line number][command flag][command][75 argument cells]
 ```
 
-This layout hints at some more restrictions that bfed has:
+This layout hints at some more restrictions that ed.bf has:
 
 - Line number is one cell, and thus there can only be as many lines, as cell capacity allows. For 8 bit implementations, 255 is the maximum line number. Pick a 16/32/64 bit implementation if you want more lines.
   - Same restriction holds for start and end line numbers.
-- Line number serves as the exit flag. If it's zero, bfed exits. Thus, the range of values for line numbers is 1 to 255.
+- Line number serves as the exit flag. If it's zero, ed.bf exits. Thus, the range of values for line numbers is 1 to 255.
 - Commands can only be one char wide, as in classic ed.
-- There are only 75 cells for arguments. Anything wider will break bfed in horrible ways. Unless you know what you're doing, restrict your command arguments to 75 characters.
+- There are only 75 cells for arguments. Anything wider will break ed.bf in horrible ways. Unless you know what you're doing, restrict your command arguments to 75 characters.
 - Command flag is the flag used for the command switch. It should be zero unless the current command is not yet processed.
 - Start and end line numbers are not yet used, but will be... one day.
 
@@ -140,14 +140,17 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
   - [ ] Forward regexp addresses.
   - [ ] Backward regexp addresses.
   - [ ] Addresses with commands.
-- [ ] Make bfed embeddable.
-  - [ ] Terminate on the same memory cell that bfed started on.
+- [ ] Make ed.bf embeddable.
+  - [ ] Terminate on the same memory cell that ed.bf started on.
   - [ ] Clean up the memory before terminating.
 - [ ] Use GNU m4 macros to reduce code repetition.
   - Is that worthy of Brainfuck programmer? No, it's not.
     - Do I care? Depends on how much bloat I'll end up with.
 
 ## Change Log
+### Version 1.4
+Rename to ed.bf and polish the code a bit.
+
 ### Version 1.3
 Add meta-evaluation in with the help of [MBF](https://github.com/aartaka/mbf).
 

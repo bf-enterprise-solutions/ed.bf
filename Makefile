@@ -1,4 +1,4 @@
 .PHONY: run
 
-run: bfed.bf
+run: ed.bf
 	${BF} $^
