@@ -18,7 +18,7 @@ The Memory layout (see below) it has allows for terrible hacks and more efficien
 
 Clone the code
 ```
-  git clone https://github.com/aartaka/ed.bf.git
+  git clone https://github.com/bf-enterprise-solutions/ed.bf.git
 ```
 
 Find the proper implementation. ed.bf work only on implementations where:
@@ -152,7 +152,7 @@ You can hack the layout, if you want. It is trivial to rewrite command/line area
 Rename to ed.bf and polish the code a bit.
 
 ### Version 1.3
-Add meta-evaluation in with the help of [MBF](https://github.com/aartaka/mbf).
+Add meta-evaluation in with the help of [meta.bf](https://github.com/bf-enterprise-solutions/meta.bf).
 
 ### Version 1.2
 A new and minimal bfed-min.bf
