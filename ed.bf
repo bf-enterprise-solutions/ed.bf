@@ -2,41 +2,40 @@
 
  Code starts here:]
 
->+ ; line number / exit flag
-[ ; main loop
- >>>>,----- ----- [+++++ +++++>,----- -----] ; read a text until a newline
- <[<] ; to the command text start
- +> ; set the case flag and get back to the command text
- ;;; switch
- [ ; if exists
-  ;; '!' (33)
+>+ line number / exit flag
+[ main loop
+ >>>>,----- ----- [+++++ +++++>,----- -----] read a text until a newline
+ <[<] to the command text start
+ +> set the case flag and get back to the command text
+ switch
+ [ if exists
+  '!' (33)
   ----- -----
   ----- -----
   ----- -----
   ---
-  [ ; minus (45)
+  [ minus (45)
    ----- ----- --
-   [ ; zero (48)
+   [ zero (48)
     ---
-    ;1 2 3 4 5 6 7 8 9 (49 to 57 respectively)
+     1 2 3 4 5 6 7 8 9 (49 to 57 respectively)
     [-[-[-[-[-[-[-[-[-
-             [ ; '=' (61)
+             [ '=' (61)
               ----
-              [ ; 'c' (99)
+              [ 'c' (99)
                ----- -----
                ----- -----
                ----- -----
                ----- ---
-               [ ; 'd' (100)
+               [ 'd' (100)
                 -
-                [ ; 'p' (112)
+                [ 'p' (112)
                  ----- ----- --
-                 [ ; 'q' (113)
+                 [ 'q' (113)
                   -
-                  [ ; not 'q'
-                   <->[-] ; empty the flag
-                   ;; error
-                   ;; question mark
+                  [ not 'q'
+                   <->[-] empty the flag
+                   error question mark
                    +++++ +++++
                    +++++ +++++
                    +++++ +++++
@@ -46,34 +45,34 @@
                    +++++ +++++.[-]
                   ]
                   <
-                  [ ; case 'q':
-                   [-]<<<[-]>>> ; empty the line number and command flag
+                  [ case 'q':
+                   [-]<<<[-]>>> empty the line number and command flag
                   ]
                   >
                  ]
                  <
-                 [ ; case 'p':
-                  [-] ; empty command flag
-                  ;; 78: to line start
+                 [ case 'p':
+                  [-] empty command flag
+                  78: to line start
                   >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
                   >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>
-                  [.>] ; print the whole line
-                  +++++ +++++.[-] ; print newline
+                  [.>] print the whole line
+                  +++++ +++++.[-] print newline
                   <[<]
-                  ;; 77: back to empty command flag
+                  77: back to empty command flag
                   <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
                   <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<
                  ]
                  >
                 ]
                 <
-                [ ; case 'd':
-                 - ; kill command flag
-                 ;; 78: move to the start of next line
+                [ case 'd':
+                 - kill command flag
+                 78: move to the start of next line
                  >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
                  >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>
-                 [>]< ; then to the end of it
-                 [[-]<]> ; erase everything and stop at the line start
+                 [>]< then to the end of it
+                 [[-]<]> erase everything and stop at the line start
                  >>>>> >>>>> >>>>> >>>>>
                  >>>>> >>>>> >>>>> >>>>>
                  >>>>> >>>>> >>>>> >>>>>
@@ -81,10 +80,10 @@
                  >>>>> >>>>> >>>>> >>>>>
                  >>>>> >>>>> >>>>> >>>>>
                  >>>>> >>>>> >>>>> >>>>>
-                 >>>>> >>>>> >>>>> >>>>> >> ;; 162 to next line
+                 >>>>> >>>>> >>>>> >>>>> >> 162 to next line
                  [
                   [>]<
-                  ;; copy the full line
+                  copy the full line
                   [[<<<<< <<<<< <<<<< <<<<<
                     <<<<< <<<<< <<<<< <<<<<
                     <<<<< <<<<< <<<<< <<<<<
@@ -102,7 +101,7 @@
                     >>>>> >>>>> >>>>> >>>>>
                     >>>>> >>>>> >>>>> >>>>> >> -
                    ]<]
-                  ;; 163: compensate for the copy loop and move to next line
+                  163: compensate for the copy loop and move to next line
                   >>>>> >>>>> >>>>> >>>>>
                   >>>>> >>>>> >>>>> >>>>>
                   >>>>> >>>>> >>>>> >>>>>
@@ -112,12 +111,12 @@
                   >>>>> >>>>> >>>>> >>>>>
                   >>>>> >>>>> >>>>> >>>>> >>>
                  ]
-                 ;; 78: back to the command flag and set it
+                 78: back to the command flag and set it
                  <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
                  <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<< +
                  [
                   -
-                  ;; 162: Move to the previous command flag
+                  162: move to the previous command flag
                   <<<<< <<<<< <<<<< <<<<<
                   <<<<< <<<<< <<<<< <<<<<
                   <<<<< <<<<< <<<<< <<<<<
@@ -125,75 +124,74 @@
                   <<<<< <<<<< <<<<< <<<<<
                   <<<<< <<<<< <<<<< <<<<<
                   <<<<< <<<<< <<<<< <<<<<
-                  <<<<< <<<<< <<<<< <<<<< << + ; and set it
-                  <<< ; move to line number
-                  [ ; if line number
-                   >>>-<<< ; kill command flag
-                   [<+>-] ; copy line number and exit the loop
+                  <<<<< <<<<< <<<<< <<<<< << + and set it
+                  <<< move to line number
+                  [ if line number
+                   >>>-<<< kill command flag
+                   [<+>-] copy line number and exit the loop
                   ]
-                  <[>+<-]> ; restore (possibly) destroyed line number
-                  >>> ; back to command flag | exit if line number was there
+                  <[>+<-]> restore (possibly) destroyed line number
+                  >>> back to command flag | exit if line number was there
                  ]
                 ]
                 >
                ]
                <
-               [ ; case 'c':
-                - ; erase the command flag
-                ;; 78: beginning of the line sector
+               [ case 'c':
+                - erase the command flag
+                78: beginning of the line sector
                 >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
                 >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>
-                ,----- ----- [+++++ +++++>,----- -----] ; read a text until a newline
-                <[<] ; to the cell before start of line
-                ;; 77: to command flag and exit
+                ,----- ----- [+++++ +++++>,----- -----] read a text until a newline
+                <[<] to the cell before start of line
+                77: to command flag and exit
                 <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
                 <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<
                ]
                >
               ]
               <
-              [ ; case '=':
-               <<< ; move to line number
-               ;; https://esolangs dot org/wiki/Brainfuck_algorithms hash
-               ;; Print_value_of_cell_x_as_number_for_ANY_sized_cell_ dot
-               ;; 28eg_8bit dot 2C_100000bit_etc dot 29
+              [ case '=':
+               <<< move to line number
+               https://esolangs dot org/wiki/Brainfuck_algorithms hash
+               Print_value_of_cell_x_as_number_for_ANY_sized_cell_ dot
+               28eg_8bit dot 2C_100000bit_etc dot 29
                >[-]>[-]+>[-]+< [>[-<-<<[->+>+<<]>[-<+>]>>]++++++++++>[-]+>[-]>[-]> [-]<<<<<[->-[>+>>]>[[-<+>]+>+>>]<<<<<]>>-[-<<+>>]<[-]++++++++ [-<++++++>]>>[-<<+>>]<<] <[.[-]<]
-               >> ; we are at the command flag now
+               >> we are at the command flag now
                +++++ +++++.[-]
               ]
               >
              ]
-             <[[->+<]>+<]>[<+>-]] ; case '9': increase command flag FALLTHROUGH
-            <[[->+<]>+<]>[<+>-]] ; case '8': increase command flag FALLTHROUGH
-           <[[->+<]>+<]>[<+>-]] ; case '7': increase command flag FALLTHROUGH
-          <[[->+<]>+<]>[<+>-]] ; case '6': increase command flag FALLTHROUGH
-         <[[->+<]>+<]>[<+>-]] ; case '5': increase command flag FALLTHROUGH
-        <[[->+<]>+<]>[<+>-]] ; case '4': increase command flag FALLTHROUGH
-       <[[->+<]>+<]>[<+>-]] ; case '3': increase command flag FALLTHROUGH
-      <[[->+<]>+<]>[<+>-]] ; case '2': increase command flag FALLTHROUGH
-     <[[->+<]>+<]>[<+>-]] ; case '1': increase command flag FALLTHROUGH
+             <[[->+<]>+<]>[<+>-]] case '9': increase command flag FALLTHROUGH
+            <[[->+<]>+<]>[<+>-]] case '8': increase command flag FALLTHROUGH
+           <[[->+<]>+<]>[<+>-]] case '7': increase command flag FALLTHROUGH
+          <[[->+<]>+<]>[<+>-]] case '6': increase command flag FALLTHROUGH
+         <[[->+<]>+<]>[<+>-]] case '5': increase command flag FALLTHROUGH
+        <[[->+<]>+<]>[<+>-]] case '4': increase command flag FALLTHROUGH
+       <[[->+<]>+<]>[<+>-]] case '3': increase command flag FALLTHROUGH
+      <[[->+<]>+<]>[<+>-]] case '2': increase command flag FALLTHROUGH
+     <[[->+<]>+<]>[<+>-]] case '1': increase command flag FALLTHROUGH
     <
-    [ ; case '0':
-     [>+<-]>-> ; get to the first unprocessed digit
-     [ ; get it to be 1 to 10 for 0 to 9
+    [ case '0':
+     [>+<-]>-> get to the first unprocessed digit
+     [ get it to be 1 to 10 for 0 to 9
       ----- -----
       ----- -----
       ----- -----
       ----- -----
       ----- -- >]
-     <[<]>> ; back to the first undeciphered digit
-     [ ; main deciphering loop
-      - ; decrease the number by 1
-      <[<++++++++++>-]<[>+<-] ; multiply previous sum by ten
-      >> ; back to the current digit
-      [<+>-] ; add it to the sum
-      >[[<+>-]>] ; shift the whole number to be one chunk again
-      <<[<]>> ; to the next digit
+     <[<]>> back to the first undeciphered digit
+     [ main deciphering loop
+      - decrease the number by 1
+      <[<++++++++++>-]<[>+<-] multiply previous sum by ten
+      >> back to the current digit
+      [<+>-] add it to the sum
+      >[[<+>-]>] shift the whole number to be one chunk again
+      <<[<]>> to the next digit
      ]
-     <[<<<+>>>-] ; back to the sum and copy it to the destination
-     <<<<- ; to line number and decrease it
-     [
-      ;; copy line number one line back
+     <[<<<+>>>-] back to the sum and copy it to the destination
+     <<<<- to line number and decrease it
+     [ copy line number one line back
       [<<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
@@ -210,7 +208,7 @@
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>> >> -]
-      > ; copy start number one line back
+      > copy start number one line back
       [<<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
@@ -227,7 +225,7 @@
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>> >> -]
-      < ; move one line back and decrease line number
+      < move one line back and decrease line number
       <<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<<
@@ -236,11 +234,11 @@
       <<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<< <<-
-     ] ; repeat until line number is zero
-     ;; we should be at the first line now
-     +>- ; restore line number and decrease start number
-     [ ; move forward to start line
-      ;; copy start line number
+     ] repeat until line number is zero
+     we should be at the first line now
+     +>- restore line number and decrease start number
+     [ move forward to start line
+      copy start line number
       [>>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
@@ -257,7 +255,7 @@
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<< << -]
-      < ; copy line number
+      < copy line number
       [>>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
        >>>>> >>>>> >>>>> >>>>>
@@ -274,7 +272,7 @@
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<<
        <<<<< <<<<< <<<<< <<<<< << -]
-      ;; move one line forward
+      move one line forward
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>>
@@ -283,25 +281,25 @@
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>> >>
-      +>- ; increase line number and decrease start number
-     ] ; we should return when at the destination line
-     ;; we're at start line cell now
-     ;; 80: move to the line and print it
+      +>- increase line number and decrease start number
+     ] we should return when at the destination line
+     we're at start line cell now
+     80: move to the line and print it
      >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
      >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
      [.>]+++++ +++++.[-]
-     ;; 77: back to the command flag
+     77: back to the command flag
      <[<]<<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< << [-]
     ]
     >
    ]
    <
-   [ ; case minus:
-    <<<- ; move to line number and decrease it
+   [ case minus:
+    <<<- move to line number and decrease it
     [
-     >>>[-]<<< ; kill command flag
-     ;; copy line number one line back
+     >>>[-]<<< kill command flag
+     copy line number one line back
      [<<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<<
       <<<<< <<<<< <<<<< <<<<<
@@ -318,7 +316,7 @@
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>>
       >>>>> >>>>> >>>>> >>>>> >> -]
-     ;; move one line back
+     move one line back
      <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<<
@@ -327,21 +325,21 @@
      <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<< <<
-     [<+>-] ; copy line number one cell to the right
-     ;; 81: move to the line and print it
+     [<+>-] copy line number one cell to the right
+     81: move to the line and print it
      >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
      >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
      >[.>]+++++ +++++.[-]
-     ;; 80: back to empty line number and empty command flag
+     80: back to empty line number and empty command flag
      <[<]<<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
      <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<[-]<<<
     ]
-    <[>+<-]> ; possibly restore line number
+    <[>+<-]> possibly restore line number
     >>>
-    [ ; if command flag is there (no movement happened)
-     <<<+>>> ; restore line number
+    [ if command flag is there (no movement happened)
+     <<<+>>> restore line number
      [-]
-     ;; question mark
+     question mark
      +++++ +++++
      +++++ +++++
      +++++ +++++
@@ -355,35 +353,35 @@
    >
   ]
   <
-  [ ; case '!'
-   - ; kill the case flag
-   >> ; command args
-   [>]<[[>>>>+<<<<-]<] ; pointer is at command char
-   > ; move to N (right after command char)
-   ;; 74: to the next line from N
+  [ case '!'
+   - kill the case flag
+   >> command args
+   [>]<[[>>>>+<<<<-]<] pointer is at command char
+   > move to N (right after command char)
+   74: to the next line from N
    +++++ +++++ +++++ +++++
    +++++ +++++ +++++ +++++
    +++++ +++++ +++++ +++++
    +++++ +++++ ++++
-   ;; meta dot r dot min dot bf copypasted from https://github dot com/aartaka/meta dot bf
+   meta dot r dot min dot bf copypasted from https://github dot com/aartaka/meta dot bf
    >>>[-]>[<+>[-------------------------------------------[-[-[-[--------------[--[-----------------------------[--[+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<<+>>-]<->]<[-<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>[<[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]<-------------------------------------------------------------------------------------------[+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[>>+<<-]<-------------------------------------------------------------------------------------------]+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>[<<+>>-]]<<[>>+<<-]>><[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]]>]<[-<+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++>>>---------------------------------------------------------------------------------------------[+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<<+>>-]>---------------------------------------------------------------------------------------------]+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++<<]>]<[-<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<]<+>>[>]]>]<[-<++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[<]<->>[>]]>]<[-<++++++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>.<[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]]>]<[-<+++++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>-<[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]]>]<[-<++++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>,<[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]]>]<[-<+++++++++++++++++++++++++++++++++++++++++++[<]<[>>[<<<+>>>-]<[>+<-]<[>+<-]>>+<-]>>+<[<[<+>-]>[<+>-]<<<[>>>+<<<-]>+>-]>>[>]]>]>]<<<[[>>+<<-]<]<
-   >>>>[>]<[[-]<]<<< ; kill commands
-   [-] ; kill N
-   << ; move to case flag and exit
+   >>>>[>]<[[-]<]<<< kill commands
+   [-] kill N
+   << move to case flag and exit
   ]>
  ]
  <
- [ ; case '\n':
-  ;; 77: move to the beginning of line and set presence flag
+ [ case '\n':
+  77: move to the beginning of line and set presence flag
   >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
   >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>+>
-  [ ; if something on the line
-   <-> ; kill presence flag
-   [.>]+++++ +++++.[-] ; print the line
-   ;; loop and 80: move back to line number
+  [ if something on the line
+   <-> kill presence flag
+   [.>]+++++ +++++.[-] print the line
+   loop and 80: move back to line number
    <[<]<<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
    <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
-   ;; 162: copy line number one sector forward
+   162: copy line number one sector forward
    [>>>>> >>>>> >>>>> >>>>>
     >>>>> >>>>> >>>>> >>>>>
     >>>>> >>>>> >>>>> >>>>>
@@ -400,7 +398,7 @@
     <<<<< <<<<< <<<<< <<<<<
     <<<<< <<<<< <<<<< <<<<<
     <<<<< <<<<< <<<<< <<<<< << -]
-   ;; 162: move to next line (increase line number)
+   162: move to next line (increase line number)
    >>>>> >>>>> >>>>> >>>>>
    >>>>> >>>>> >>>>> >>>>>
    >>>>> >>>>> >>>>> >>>>>
@@ -409,16 +407,16 @@
    >>>>> >>>>> >>>>> >>>>>
    >>>>> >>>>> >>>>> >>>>>
    >>>>> >>>>> >>>>> >>>>> >> +
-   ;; 81: move to line start
+   81: move to line start
    >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>>
    >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >>>>> >
-   [<<+>>-] ; copy the first char if something on the line
+   [<<+>>-] copy the first char if something on the line
   ]
-  <<[>>+<<-] ; copy (possibly) saved first char
-  > ; back to the presence flag
+  <<[>>+<<-] copy (possibly) saved first char
+  > back to the presence flag
   [
    [-]
-   ;; question mark
+   question mark
    +++++ +++++
    +++++ +++++
    +++++ +++++
@@ -428,9 +426,9 @@
    +++.[-]
    +++++ +++++.[-]
   ]
-  ;; 77: back to the command flag and kill it
+  77: back to the command flag and kill it
   <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<<
   <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<<<< <<[-]
  ]
- <<< ; back to line number
-] ; main loop
+ <<< back to line number
+] main loop ends

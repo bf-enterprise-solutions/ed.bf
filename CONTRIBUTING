@@ -1,0 +1,37 @@
+CONTRIBUTING
+- Stick to Code conventions listed below.
+- Change the code and comment the changes exhaustively.
+- Open a PR with the clear explanation of what you've done.
+  
+CODE CONVENTIONS
+- Indent every loop body by one more space than the outer code.
+  - Matching brackets have the same indentation.
+  - Opening bracket and closing bracket should occupy a line of their
+    own, unless the loop is tiny.
+- Put every semantically separate piece of code onto the line of their own.
+- Comments should follow these rules:
+  - All comments are expected to be lowercase ASCII text.
+  - If there's a character belonging to the Brainfuck command set,
+    replace it with:
+    - '+' -> plus
+    - '-' -> minus
+    - ',' -> comma
+    - '.' -> dot, period
+    - '<' -> less than, lt
+    - '>' -> greater than, gt
+    - '[' -> opening bracket
+    - ']' -> closing bracket
+    - '#' -> hash
+    - '!' -> bang, exclamation mark
+  - File-level comment belong to a comment loop, conventional for
+    other BF codebases.
+  - Block-level comments should precede the block.
+    - Optionally, end those with a colon
+    - Loop header comments should follow the opening bracket.
+      - Closing bracket should have the exact same comment, but with
+        "ends" appended to it, as in "[ main loop" -> "] main loop
+        ends".
+  - Line-level comments should directly follow the code.
+  - Comments always start with a space, separating them from the
+    commands
+  - Comments always end with a newline. No comment-code mixing.
