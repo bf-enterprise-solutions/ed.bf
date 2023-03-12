@@ -1,3 +1,5 @@
+[SPDX-FileCopyrightText: Brainfuck Enterprise Solutions
+ SPDX-License-Identifier: WTFPL]
 [bfed-min.bf -- the stripped-down version of bfed.
 
  It only supports Brainfuck chars as commands, i.e.

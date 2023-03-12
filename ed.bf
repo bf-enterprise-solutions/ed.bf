@@ -1,3 +1,5 @@
+[SPDX-FileCopyrightText: Brainfuck Enterprise Solutions
+ SPDX-License-Identifier: WTFPL]
 [bfed.bf -- the source code of bfed, Brainfuck-based ed re-implementation.
 
  Code starts here:]
