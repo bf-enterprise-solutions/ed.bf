@@ -26,7 +26,8 @@
  [1 GETTING STARTED
 
   Clone the code:
-  git clone https://github.com/bf-enterprise-solutions/ed.bf.git
+  [shell:
+   git clone https://github.com/bf-enterprise-solutions/ed.bf.git]
 
   Find the proper implementation. ed.bf work only on implementations where:
   - All cells are initially zeroed.
