@@ -1,13 +1,7 @@
 CONTRIBUTING
-- Stick to Code conventions listed below.
 - Change the code and comment the changes exhaustively.
 - Open a PR with the clear explanation of what you've done.
+- Ensure that the code conforms to bf.style
+  (https://github.com/bf-enterprise-solutions/bf.style)
 - Ensure that comments, README.bf, and comment loops conform with
   bf.doc (https://github.com/bf-enterprise-solutions/bf.doc)
-
-CODE CONVENTIONS
-- Indent every loop body by one more space than the outer code.
-  - Matching brackets have the same indentation.
-  - Opening bracket and closing bracket should occupy a line of their
-    own, unless the loop is tiny.
-- Put every semantically separate piece of code onto the line of their own.
