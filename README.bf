@@ -102,6 +102,8 @@
   ?
   > p # print current line
   ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
+  > ! [.>]+++++ +++++.[-] # run a script
+  ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
   > q # quit
   =========================================================================]
 
@@ -177,6 +179,9 @@
   --- Do I care? Depends on how much bloat I'll end up with.]
 
  [5 CHANGE LOG
+  Version 1.5.7-revision-12
+  - Integrate meta.bf nested loops support.
+
   Version 1.4:
   - Rename to ed.bf and polish the code a bit.
 
