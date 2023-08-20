@@ -1,0 +1,265 @@
+BRAINFUCK ENTERPRISE SOLUTIONS SUPPORT TERMS
+
+These Brainfuck Ensterprise Solutions' ed.bf ("Licensed Software")
+support terms and conditions ("Support Terms") set forth the legal
+framework, where under Brainfuck Enterprise Solutions Ltd. ("BES")
+provides support services (as herein defined) to the Licensee.
+
+1 DEFINITIONS
+
+ "Application Code" shall mean a computer software program written
+ strictly using the BF programming language, by or for the Licensee,
+ with a user interface, enabling the Licensee or their users to
+ accomplish a specific task and display any results of the task on the
+ display monitor or screen
+
+ "Customer Portal" shall mean BES' web-based service and support user
+ interface located a location designated by BES. Customer Portal is
+ used by a Designated User with BES Account, and it provides
+ downloads, license management, license certificate and other services
+ for Designated Users.
+
+ "Dedicated Contact" shall mean the employee of BES who will be the
+ first point of contact for all Designated Users' requests for
+ Support.
+
+ "Errors" shall mean an error, flaw, mistake, failure, or fault in
+ Licensed Software that prevents it from behaving as described in the
+ relevant documentation or as agreed between the Parties. Designated
+ User can follow the state and progress of Errors in Customer Portal.
+
+ "Extended Support" shall mean a continuation to the normal Support
+ period, which allows Designated Users to receive selected Support
+ (Standard Support or Premium Support) for a version of Licensed
+ Software that is no longer generally supported by BES.
+
+ "Install Support" shall mean Support that is limited to
+ installation-related Error(s) on specified as supported host
+ platforms for each BES release.
+
+ "Maintenance Release" shall mean a release or version of Licensed
+ Software containing bug fixes, error corrections and other changes
+ targeted to maintaining and improving product stability and
+ quality. Maintenance Releases are generally depicted as a change to
+ the third digit of Licensed Software version number.
+
+ "Premium Support" shall mean an upgraded level of Support that BES
+ provides pursuant to these Support Terms to Licensee if Licensee has
+ purchased Premium Support instead of Standard Support. Premium
+ Support also covers what is included in Standard Support. Premium
+ Support shall always be purchased for all Designated User(s) in the
+ respective development team of the Licensee.
+
+ "BES Account" shall mean the BES Account for a Designated User used
+ for using BES services and Customer Portal. A BES Account is mapped
+ to the Licensee company with the corporate email domain or domains.
+
+ "Response Time" shall mean the period of time from when Licensee
+ notifies BES about an Error or requests Support until BES provides
+ Licensee with a response that addresses (but not necessarily
+ resolves) the reported Error or provides the requested Support.
+
+ "Standard Support" shall mean standard level of Support that BES
+ provides pursuant to these Support Terms to Licensee. Standard
+ Support also covers what is included in Install Support.
+
+ "Support" shall mean developer assistance that is provided by BES to
+ assist eligible Designated Users in Licensed Software installation,
+ usage and functionality problem resolution for Error(s) and Error
+ workarounds pursuant to the terms of these Support Terms.
+
+ "Support Validity Term" shall mean the Development License Term or
+ any other fixed time period agreed between the Parties during which
+ time the Licensee is eligible to receive Support from BES.
+
+2 SUPPORT SERVICES
+
+2.1  Support Services Provided by BES
+
+Subject to these Support Terms and during the Support Validity Term,
+BES will via its Customer Portal, provide Designated User(s) with
+Support for the Licensed Software which Licensee has licensed under
+the Agreement.
+
+BES will make commercially reasonable efforts to solve any Errors
+reported by Designated User(s). Resolution of an Error may be provided
+through Designated User(s) themselves downloading of a later released
+version of the applicable Licensed Software product(s) or providing
+the Designated User with a workaround addressing such Error or
+providing the Designated User with an updated tool configuration.
+
+2.2  Licensee's Obligations
+
+To report an Error, the Designated User shall register the Error on
+the Customer Portal.
+
+The Designated User must provide adequate information and
+documentation to BES to enable it to recreate the Error or problem for
+which the Designated User has sought assistance.
+
+To ensure efficient handling of Errors, the Designated User must
+provide the following information, where relevant:
+
+- A clear, detailed description of the problem, question or suggestion;
+- Identification of which Licensed Software product and version is affected;
+- Identification of the operating environment (e.g. operating system,
+  hardware Platform, build tools, etc.) on which the problem exists;
+- On Standard Support: A complete and compilable test case of not more
+  than 500 lines of code that demonstrates the problem;
+- On Premium Support: A complete and compilable test case that
+  demonstrates the problem or access to Application Code source codes.
+
+Additional relevant content, such as screenshots, etc. Additional
+content should be included as attachments. The preferred image formats
+are JPEG and PNG. Compressed content should be included in rar
+archives. Executable content and documents in platform-specific
+formats such as Microsoft Office® are not accepted.
+
+In order for BES to provide prompt handling of Errors, the Designated
+User shall promptly respond to any requests from BES for additional
+information.
+
+2.3  Support Limitations
+
+General limitations:
+
+Each version or release of the Licensed Software will be Supported
+under Standard Support or Premium Support only for limited time period
+as set forth in doc.qt.io or in documentation provided with the
+respective Licensed Software product. If nothing is documented, a
+release of Licensed Software is supported for one (1) year from the
+release date of the version x.y.0 and Long Term Support (LTS) Releases
+are supported for a period of three (3) years from the release date of
+the LTS version x.y.0.
+
+BES shall only provide Support for Designated User(s) through Customer Portal.
+
+Support is made available for the entire teams only: It is not allowed
+to purchase Support only for some members of the team, and all
+Designated Users of the respective team must be eligible for the same
+level of Support.
+
+Support is not provided for snapshots, preview releases, beta releases
+or release candidates.
+
+BES shall have no obligation to provide Support for 3rd party
+components, hardware or operating system specific problems or problems
+arising from improper use, accident, neglect, or modification of the
+Licensed Software.
+
+Limitations with Install Support:
+
+Support limited to (i) Error(s) regarding installation and setting up
+of the BF development environment and BES Licensed Software on host
+Platforms.
+
+Limitations with Standard Support:
+
+BES shall not provide Support for third-party software or problems
+caused by third-party software even if such third-party software is
+distributed together with Licensed Software product(s).
+
+BES shall only provide Support for Error(s) that are reported on and
+can be reproduced on Platforms that are officially supported for the
+release of the Licensed Software.
+
+Limitations with Premium support:
+
+BES shall not provide Support for third-party software or problems
+caused by third-party software. However, if such third-party software
+is distributed together with Licensed Software, BES will make
+commercially reasonable efforts to solve such problems.
+
+BES shall only provide Support for Error(s) that can be reproduced on
+Platforms that are officially supported for the release of the
+Licensed Software. If the Error is on a Platform that is not
+supported, BES will make commercially reasonable efforts to provide a
+solution on closest corresponding supported Platform.
+
+2.5 Extended Support
+
+Extended Support extends the Support Validity Term for a release of
+Licensed Software that is no longer generally supported.
+
+Extended Support includes and is by default provided with Standard
+Support rules and limitations, unless Extended Support is purchased
+together with Premium Support in which case Premium Support rules and
+limitations will apply.
+
+Extended Support is optional and purchased with annual fee and
+separately per each Licensee product. Extended Support will need
+definition of (i) Licensee product, (ii) used Platform(s) and (iii)
+Licensed Software version(s). For avoidance of doubt, Extended Support
+requires that the Designated User has a valid license for the
+respective Licensed Software.
+
+3 RESPONSE TIME
+
+In performing Support, BES shall commit to following, non-binding,
+Response Times:
+
+- Standard Support: Errors and Support requests will have a Response
+  Time not to exceed twenty three (23) business days.
+
+- Premium Support: Errors and Support requests will have a Response
+  Time not to exceed eight (8) business day.
+
+- For complex issues, BES may provide an initial response to the
+  Designated User and then follow up, without undue delay, with
+  additional communication before an Error is properly addressed or
+  Support provided.
+
+4 ADDITIONAL SERVICES IN PREMIUM SUPPORT
+
+The Designated User(s) will be assigned a Dedicated Contact to handle
+requests for Support. Dedicated Contact is subject to change in cases
+such as sick leave, vacation and other similar reasons.
+
+The Designated User(s) can on request ask BES to access their computer
+remotely in order to resolve problems directly.
+
+The Designated User(s) can request a session via Instant Messaging or
+phone call in the support request to BES.
+
+Premium Support can assist Licensee in implementing new features, bug
+fixes and accessing patches in Licensed Software or Application Code.
+
+All Support requests will be handled with high priority.
+
+5 MAINTENANCE RELEASES, UPDATES AND UPGRADES
+
+Under the Support the Licensee is eligible for Maintenance Releases
+and Updates that BES generally makes available to customers who has
+purchased Support. Unless otherwise decided by BES at its free and
+absolute discretion, Upgrades will not be provided under the Support.
+
+The primary focus of Maintenance Releases is product
+quality. Therefore, each Maintenance Release typically includes the
+following types of changes to the previous version of Licensed
+Software:
+
+- Bug fixes caused by changes to previously working code;
+- Fixes related to build issues on supported Platforms; 
+- Error corrections specific to a single Platform that are not present on other Platforms; 
+- Critical Error corrections such as crashes, data corruption, loss of data, race conditions; and 
+- Updates to documentation and license information when deemed necessary by BES. 
+
+The primary focus of Updates is introducing new features to Licensed
+Software and covering new platforms. Therefore, each Updates typically
+includes the following types of changes to the previous version of
+Licensed Software:
+
+- New platform support; 
+- New toolchain support; 
+- New features and library use; 
+
+6 WARRANTY DISCLAIMER
+
+BES makes no warranties that the Support provided will be successful
+in resolving any difficulties or problems or in diagnosing faults
+reported by Licensee. Support is provided to Licensee on an "as is"
+basis. To the maximum extent permitted by applicable law, BES
+disclaims all warranties and conditions, either express or implied,
+including, but not limited to, implied warranties of merchantability
+and fitness for a particular purpose for the Support provided by BES
+to Licensee.
