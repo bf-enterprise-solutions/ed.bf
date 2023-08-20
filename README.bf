@@ -51,18 +51,7 @@
     the meta-evaluation of Brainfuck code is as close to ed's '!'
     meaning as we can get. Uses meta.bf
     (https://github.com/bf-enterprise-solutions/meta.bf) internally.
-  - 'q' to exit ed.bf.
-
-  [2.1 ED-MIN.BF
-
-   ed-min.bf is even more of a laconic ed.bf version, where all the
-   commands are Brainfuck command characters:
-   - '+' and ',' are changing the line
-   - Should '+' be append instead?
-   - '-' is deleting the line.
-   - '.' is printing the line.
-   - '<' is line back.
-   - '>' is line forward.]]
+  - 'q' to exit ed.bf.]
 
  [3 EXAMPLE SESSION
 
