@@ -45,6 +45,7 @@
   - '=' to print the current line number. Even if the line is empty.
   - newline to go to next line.
   - '-' to go to previous line.
+  - Any number to go to the respective numbered line.
   - '!' to evaluate Brainfuck code on the current line contents. Given
     that Brainfuck implies no underlying OS, there's no shell. Thus,
     the meta-evaluation of Brainfuck code is as close to ed's '!'
