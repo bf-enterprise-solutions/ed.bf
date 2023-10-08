@@ -40,8 +40,7 @@
 
   - 'c' to change the current line.
   - 'd' to remove the current line (flush it clean, basically). Moves
-  all the filled lines after the deleted ones to cover the deleted
-  one.
+  all the filled lines after the deleted one to cover it.
   - 'p' to print the current line.
   - '=' to print the current line number. Even if the line is empty.
   - newline to go to next line.
