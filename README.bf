@@ -68,9 +68,8 @@
   too. Using those can break ed.bf. Or it won't do anything, who
   knows...
   =========================================================================
-  # bff is used as bf interpreter there, but any other
-  # interpreter/compiler should be fine too
-  $ bff ed.bf # run ed.bf
+  # bf is your compiler/interpreter of choice.
+  $ bf ed.bf # run ed.bf
   > c # input one line
   > ed.bf is an opinionated UNIX ed re-implementation in Brainfuck.
   >
