@@ -165,6 +165,17 @@
   - [ ] Use GNU m4 macros to reduce code repetition.
   -- Is that worthy of Brainfuck programmer? No, it's not.
   --- Do I care? Depends on how much bloat I'll end up with.]
+  - Fix the deletion over-scrolling:
+  [txt:
+   c
+   hello
+   =
+   1
+   p
+   hello
+   d
+   =
+   11]
 
  [5 CHANGE LOG
   Version 1.5.7-revision-12
