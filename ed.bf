@@ -13,7 +13,7 @@ COPYRIGHT NOTICE:
  +> set the case flag and get back to the command text
  switch
  [ if exists
-  '!' (33)
+  exclamation (33)
   ----- -----
   ----- -----
   ----- -----
@@ -357,7 +357,7 @@ COPYRIGHT NOTICE:
    >
   ]
   <
-  [ case '!'
+  [ case exclamation
    - kill the case flag
    >> command args
    [>]<[[>>>>>+<<<<<-]<] pointer is at command char
